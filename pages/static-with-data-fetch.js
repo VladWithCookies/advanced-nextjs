@@ -1,18 +1,29 @@
-import fetch from 'unfetch'
-import useSWR from 'swr'
+import fetch from 'unfetch';
+import useSWR from 'swr';
 
 async function fetcher(path) {
-  const res = await fetch(path)
-  const json = await res.json()
+  const res = await fetch(path);
+  const json = await res.json();
 
-  return json
+  return json;
 }
 
 function StaticWithDataFetch() {
-  const { data, error } = useSWR('https://api.github.com/repos/zeit/next.js', fetcher)
+  const { data, error } = useSWR('https://api.github.com/repos/zeit/next.js', fetcher);
 
-  if (error) return <div>Failed to load</div>
-  if (!data) return <div>Loading...</div>
+  if (error) {
+    return (
+      <p>
+        Failed to load
+      </p>
+    );
+  }
+
+  if (!data) {
+    return (
+      <p>Loading...</p>
+    );
+  }
 
   return (
     <p>
@@ -21,4 +32,4 @@ function StaticWithDataFetch() {
   )
 }
 
-export default StaticWithDataFetch
+export default StaticWithDataFetch;

@@ -1,4 +1,4 @@
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 
 const Test = dynamic(
   () => import('../components/Test'),
@@ -12,6 +12,6 @@ const UsingDynamicImport = () => (
     </p>
     <Test />
   </>
-)
+);
 
-export default UsingDynamicImport
+export default UsingDynamicImport;

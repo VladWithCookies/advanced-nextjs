@@ -4,6 +4,6 @@ const UsingSass = () => (
   <p>
     Using sass
   </p>
-)
+);
 
-export default UsingSass
+export default UsingSass;

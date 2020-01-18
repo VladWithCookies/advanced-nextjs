@@ -45,6 +45,20 @@ const HomePage = () => {
           </a>
         </Link>
       </div>
+      <div>
+        <Link href='/not-found'>
+          <a>
+            Custom error page
+          </a>
+        </Link>
+      </div>
+      <div>
+        <Link href='/css-in-js'>
+          <a>
+            Using custom babel config & custom document for Styled Components integration
+          </a>
+        </Link>
+      </div>
     </>
   )
 }
