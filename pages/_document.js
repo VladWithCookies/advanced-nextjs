@@ -18,7 +18,6 @@ class CustomgDocument extends Document {
     return (
       <Html>
         <Head>
-          <title>Advanced next</title>
           {this.props.styleTags}
         </Head>
         <body>
