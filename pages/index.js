@@ -59,6 +59,13 @@ const HomePage = () => {
           </a>
         </Link>
       </div>
+      <div>
+        <Link href='/using-redux'>
+          <a>
+            Using redux
+          </a>
+        </Link>
+      </div>
     </>
   )
 }
