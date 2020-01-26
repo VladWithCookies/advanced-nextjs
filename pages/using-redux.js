@@ -1,6 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux'
-
-import withRedux from '../lib/withRedux'
+import { useDispatch, useSelector, connect } from 'react-redux'
 
 const UsingRedux = () => {
   const count = useSelector(state => state.count)
@@ -35,4 +33,4 @@ const UsingRedux = () => {
   )
 };
 
-export default withRedux(UsingRedux);
+export default connect(state => state)(UsingRedux);

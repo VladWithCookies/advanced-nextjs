@@ -1,27 +1,23 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+
+import reducer from './reducer';
+import saga from './saga';
 
 const initialState = {
   count: 0,
 };
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'INCREMENT':
-      return {
-        ...state,
-        count: state.count + 1,
-      }
-    case 'DECREMENT':
-      return {
-        ...state,
-        count: state.count - 1,
-      }
-    default:
-      return state
-  }
-}
+export default (preloadedState = initialState) => {
+  const sagaMiddleware = createSagaMiddleware()
 
-export default (preloadedState = initialState) => createStore(
-  reducer,
-  preloadedState,
-);
+  const store = createStore(
+    reducer,
+    preloadedState,
+    applyMiddleware(sagaMiddleware)
+  );
+
+  store.sagaTask = sagaMiddleware.run(saga);
+
+  return store;
+};
